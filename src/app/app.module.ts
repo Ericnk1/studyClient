@@ -9,22 +9,55 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { SignupComponent } from './signup/signup.component';
+import {RouterModule, Routes} from '@angular/router';
+import {AppRoutingModule} from './app-routing/app-routing.module';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {AppInterceptor} from './shared/interceptor/app.interceptor';
+import { SchoolComponent } from './school/school.component';
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    SignupComponent,
     HomeComponent,
-    SignupComponent
+    SchoolComponent,
   ],
   imports: [
     BrowserModule,
     MatFormFieldModule,
+    RouterModule.forChild(appRoutes),
+    AppRoutingModule,
+    HttpClientModule,
+    MatInputModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatInputModule
+    MatSnackBarModule
   ],
-  providers: [],
+  exports: [RouterModule],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AppInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

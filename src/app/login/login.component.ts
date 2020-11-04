@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {LoginService} from '../shared/services/login.service';
-import {Login} from '../shared/services/models/login';
+import {Login} from '../shared/models/login';
 
 @Component({
   selector: 'app-login',
