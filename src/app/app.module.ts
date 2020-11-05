@@ -16,6 +16,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {AppInterceptor} from './shared/interceptor/app.interceptor';
 import { SchoolComponent } from './school/school.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import {MatListModule} from '@angular/material/list';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 const appRoutes: Routes = [
   {
@@ -39,6 +44,8 @@ const appRoutes: Routes = [
     SignupComponent,
     HomeComponent,
     SchoolComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,10 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatListModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    FlexLayoutModule
   ],
   exports: [RouterModule],
   providers: [{
