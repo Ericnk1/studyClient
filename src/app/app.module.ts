@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { SignupComponent } from './signup/signup.component';
@@ -21,20 +21,23 @@ import { FooterComponent } from './footer/footer.component';
 import {MatListModule} from '@angular/material/list';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTableModule} from '@angular/material/table';
+import { CourseComponent } from './course/course.component';
+import { ContactComponent } from './contact/contact.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSliderModule} from '@angular/material/slider';
+import { UserComponent } from './user/user.component';
+import {MatSortModule} from '@angular/material/sort';
 
 const appRoutes: Routes = [
-  {
-    path: '',
-    component: LoginComponent
-  },
-  {
-    path: 'signup',
-    component: SignupComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  }
+  {path: 'home', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignupComponent},
+  {path: 'user', component: UserComponent},
+  {path: 'school', component: SchoolComponent},
+  {path: 'course', component: CourseComponent},
+  {path: 'contact', component: ContactComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -46,6 +49,9 @@ const appRoutes: Routes = [
     SchoolComponent,
     HeaderComponent,
     FooterComponent,
+    CourseComponent,
+    ContactComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,9 +64,14 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatButtonModule,
     MatListModule,
+    MatTableModule,
     MatSnackBarModule,
     MatToolbarModule,
-    FlexLayoutModule
+    MatSlideToggleModule,
+    MatSliderModule,
+    FlexLayoutModule,
+    MatSortModule,
+    FormsModule
   ],
   exports: [RouterModule],
   providers: [{

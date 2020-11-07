@@ -10,8 +10,8 @@
         <h4>Links</h4>
         <mat-list>
           <mat-list-item><a mat-button routerLink="/home">Home</a></mat-list-item>
-          <mat-list-item><a mat-button routerLink="/school">School</a></mat-list-item>
-          <mat-list-item><a mat-button routerLink="/course">Course</a></mat-list-item>
+          <mat-list-item><a *ngIf="isLogged" mat-button routerLink="/school">School</a></mat-list-item>
+          <mat-list-item><a *ngIf="isLogged" mat-button routerLink="/course">Course</a></mat-list-item>
           <mat-list-item><a mat-button routerLink="/contactus">Contact</a></mat-list-item>
         </mat-list>
       </div>
