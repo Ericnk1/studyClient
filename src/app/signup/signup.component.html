@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <h1 class="display-4">Signup</h1>
+  <hr class="my-4">
+  <form class="example-form" [formGroup]="signupGroup">
+    <mat-form-field class="example-full-width">
+      <mat-label>Username</mat-label>
+      <input formControlName="username" matInput type="text" placeholder="Username">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput type="password" placeholder="Password">
+    </mat-form-field>
+    <button mat-raised-button color="warn" (click)="signup()">Signup</button>
+  </form>
+</div>
