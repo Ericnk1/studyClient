@@ -11,7 +11,7 @@ import {School} from '../shared/models/school';
 })
 export class SchoolComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'city', 'phone'];
+  displayedColumns: string[] = ['id', 'name', 'city', 'phone', 'button'];
 
   schools: School[] = [];
   dataSource = null;

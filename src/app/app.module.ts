@@ -28,6 +28,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
 import { UserComponent } from './user/user.component';
 import {MatSortModule} from '@angular/material/sort';
+import { AuthorityComponent } from './authority/authority.component';
+import {MatOptionModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -52,6 +55,7 @@ const appRoutes: Routes = [
     CourseComponent,
     ContactComponent,
     UserComponent,
+    AuthorityComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +75,9 @@ const appRoutes: Routes = [
     MatSliderModule,
     FlexLayoutModule,
     MatSortModule,
-    FormsModule
+    FormsModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   exports: [RouterModule],
   providers: [{

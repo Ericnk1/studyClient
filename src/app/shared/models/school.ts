@@ -1,9 +1,9 @@
 export class School {
-  private id: number;
-  private name: string;
-  private city: string;
-  private phone: string;
-  private isActive: boolean;
+  id: number;
+  name: string;
+  city: string;
+  phone: string;
+  isActive: boolean;
 
 
   constructor(id: number, name: string, city: string, phone: string, isActive: boolean) {

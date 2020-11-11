@@ -11,6 +11,27 @@
       <mat-label>Password</mat-label>
       <input formControlName="password" matInput type="password" placeholder="Password">
     </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="authority">
+      <mat-option *ngFor="let authority of authorities" [value]="authority">{{authority.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>School</mat-label>
+      <mat-select formControlName="school">
+        <mat-option *ngFor="let school of schools" [value]="school">{{school.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Course</mat-label>
+      <mat-select formControlName="course">
+        <mat-option *ngFor="let course of courses" [value]="course">{{course.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
     <button mat-raised-button color="warn" (click)="signup()">Signup</button>
   </form>
 </div>

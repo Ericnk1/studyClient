@@ -11,7 +11,7 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class CourseComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'durationHours', 'isActive'];
+  displayedColumns: string[] = ['id', 'name', 'durationHours', 'isActive', 'button'];
 
   courses: Course[] = [];
   dataSource = null;
