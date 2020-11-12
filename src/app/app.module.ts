@@ -31,6 +31,12 @@ import {MatSortModule} from '@angular/material/sort';
 import { AuthorityComponent } from './authority/authority.component';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import { AddCourseComponent } from './add-course/add-course.component';
+import { AddSchoolComponent } from './add-school/add-school.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { UpdateSchoolComponent } from './update-school/update-school.component';
+import { UpdateCourseComponent } from './update-course/update-course.component';
+import {MatCardModule} from '@angular/material/card';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -38,6 +44,7 @@ const appRoutes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'user', component: UserComponent},
   {path: 'school', component: SchoolComponent},
+  {path: 'add-school', component: AddSchoolComponent},
   {path: 'course', component: CourseComponent},
   {path: 'contact', component: ContactComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
@@ -56,6 +63,11 @@ const appRoutes: Routes = [
     ContactComponent,
     UserComponent,
     AuthorityComponent,
+    AddCourseComponent,
+    AddSchoolComponent,
+    UpdateUserComponent,
+    UpdateSchoolComponent,
+    UpdateCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +89,8 @@ const appRoutes: Routes = [
     MatSortModule,
     FormsModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
   ],
   exports: [RouterModule],
   providers: [{

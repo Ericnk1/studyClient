@@ -42,9 +42,9 @@ export class SignupComponent implements OnInit {
     });
   }
   signup(): void{
-    const user = new User(0, this.signupGroup.get('username').value, this.signupGroup.get('password').value, this.signupGroup.get('authority').value, this.signupGroup.get('school').value, this.signupGroup.get('course').value);
+    const user = new User(null, this.signupGroup.get('username').value, this.signupGroup.get('password').value, this.signupGroup.get('authority').value, this.signupGroup.get('school').value, this.signupGroup.get('course').value);
     this.signupService.validateSignup(user).subscribe(
-      value => window.location.assign('/home'),
+      value => window.location.assign('/user'),
       error => {
         this.snackbar.open(error.error.message.concat(error.error.details[0]), 'close', {
           duration: 6000,
