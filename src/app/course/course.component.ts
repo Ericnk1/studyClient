@@ -10,14 +10,15 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
+  constructor(private courseService: CourseService) { }
 
   displayedColumns: string[] = ['id', 'name', 'durationHours', 'isActive', 'button'];
 
   courses: Course[] = [];
   dataSource = null;
+  course: Course;
 
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private courseService: CourseService) { }
 
   ngOnInit(): void {
     this.courseService.getAllCourses().subscribe(value => {
@@ -26,6 +27,9 @@ export class CourseComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.courses);
       this.dataSource.sort = this.sort; });
 
+  }
+  deleteCourse(id: number): void {
+    this.courseService.deleteCourseById(id).subscribe(value => window.location.assign('/courses'));
   }
 
 }

@@ -46,6 +46,7 @@ const appRoutes: Routes = [
   {path: 'school', component: SchoolComponent},
   {path: 'add-school', component: AddSchoolComponent},
   {path: 'course', component: CourseComponent},
+  {path: 'add-course', component: AddCourseComponent},
   {path: 'contact', component: ContactComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
