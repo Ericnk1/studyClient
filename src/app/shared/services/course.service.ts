@@ -25,7 +25,7 @@ export class CourseService {
   }
 
   public deleteCourseById(id: number): Observable<any> {
-    return this.httpClient.delete(this.COURSE_BASE_URL + id);
+    return this.httpClient.delete(this.COURSE_BASE_URL.concat('/id'));
   }
 
   public updateCourse(course: Course): Observable<Course> {

@@ -10,6 +10,7 @@ import {School} from '../shared/models/school';
 import {Course} from '../shared/models/course';
 import {SchoolService} from '../shared/services/school.service';
 import {CourseService} from '../shared/services/course.service';
+import {UserService} from '../shared/services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -23,6 +24,7 @@ export class SignupComponent implements OnInit {
   courses: Course[];
 
   constructor(private snackbar: MatSnackBar,
+              private userService: UserService,
               private formBuilder: FormBuilder,
               private signupService: SignupService,
               private authorityService: AuthorityService,
@@ -44,7 +46,7 @@ export class SignupComponent implements OnInit {
   signup(): void{
     const user = new User(null, this.signupGroup.get('username').value, this.signupGroup.get('password').value, this.signupGroup.get('authority').value, this.signupGroup.get('school').value, this.signupGroup.get('course').value);
     console.log(user);
-    this.signupService.validateSignup(user).subscribe(
+    this.userService.addUser(user).subscribe(
       value => window.location.assign('/user')/*,
       error => {
         this.snackbar.open(error.error.message.concat(error.error.details[0]), 'close', {
