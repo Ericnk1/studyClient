@@ -15,6 +15,9 @@ export class UserService {
   public getAllUsers(): Observable<User[]> {
     return this.httpClient.get<User[]>(this.USER_BASE_URL);
   }
+  public getUserById(id: string): Observable<User> {
+    return this.httpClient.get<User>(this.USER_BASE_URL + id);
+  }
 
   public restoreUser(): Observable<User> {
     return this.httpClient.get<User>(this.USER_BASE_URL.concat('/id'));

@@ -29,5 +29,8 @@ export class SchoolComponent implements OnInit {
       this.dataSource.sort = this.sort; });
 
   }
+  deleteSchool(id: number): void {
+    this.schoolService.deleteSchoolById(id).subscribe(value => window.location.reload());
+  }
 
 }

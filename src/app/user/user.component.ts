@@ -3,6 +3,7 @@ import {MatSort} from '@angular/material/sort';
 import {User} from '../shared/models/user';
 import {UserService} from '../shared/services/user.service';
 import {MatTableDataSource} from '@angular/material/table';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -13,12 +14,14 @@ export class UserComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'userName', 'school', 'course', 'button'];
 
+  Id: number;
+  user: User;
   users: User[] = [];
   dataSource = null;
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private userService: UserService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) { }
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe(value => {
       this.users = (value);
@@ -27,6 +30,12 @@ export class UserComponent implements OnInit {
       console.log(this.dataSource);
       this.dataSource.sort = this.sort; });
 
+  }
+  useDetail(): void {
+    this.router.navigate(['/update-ser', this.Id]);
+  }
+  deleteUser(id: number): void {
+    this.userService.deleteUserById(id).subscribe(value => window.location.reload());
   }
 
 }

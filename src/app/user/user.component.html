@@ -27,8 +27,8 @@
   <ng-container matColumnDef="button">
     <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
     <td mat-cell *matCellDef="let element">
-      <button mat-raised-button color="primary">Update</button>
-      <button mat-raised-button color="warn">Delete</button>
+      <button mat-raised-button routerLink="/update-user" color="primary">Update</button>
+      <button mat-raised-button (click)="deleteUser(element.id)" color="warn">Delete</button>
       <button mat-raised-button color="accent">Restore</button>
     </td>
   </ng-container>

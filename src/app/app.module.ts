@@ -43,10 +43,13 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'user', component: UserComponent},
+  {path: 'update-user', component: UpdateUserComponent},
   {path: 'school', component: SchoolComponent},
   {path: 'add-school', component: AddSchoolComponent},
+  {path: 'update-school', component: UpdateSchoolComponent},
   {path: 'course', component: CourseComponent},
   {path: 'add-course', component: AddCourseComponent},
+  {path: 'update-course', component: UpdateCourseComponent},
   {path: 'contact', component: ContactComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
