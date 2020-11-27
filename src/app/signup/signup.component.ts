@@ -46,7 +46,9 @@ export class SignupComponent implements OnInit {
     });
   }
   signup(): void{
-    const user = new User(null, this.signupGroup.get('username').value, this.signupGroup.get('password').value, this.signupGroup.get('authority').value, this.signupGroup.get('school').value, this.signupGroup.get('course').value);
+    const user = new User(null, this.signupGroup.get('username').value,
+      this.signupGroup.get('password').value, this.signupGroup.get('authority').value,
+      this.signupGroup.get('school').value, this.signupGroup.get('course').value, null);
     console.log(user);
     this.userService.addUser(user).subscribe(
       value => window.location.assign('/user')/*,
