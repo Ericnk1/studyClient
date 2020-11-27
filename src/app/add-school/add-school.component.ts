@@ -24,8 +24,8 @@ export class AddSchoolComponent implements OnInit {
   }
   addSchool(): void {
     const addSchool = new School(null, this.addSchoolGroup.get('name').value,
-      this.addSchoolGroup.get('city').value, this.addSchoolGroup.get('phone').value);
-    console.log(addSchool);
+      this.addSchoolGroup.get('city').value, this.addSchoolGroup.get('phone').value, null);
+    // console.log(addSchool);
     this.schoolService.addSchool(addSchool).subscribe(value => window.location.assign('/school'));
   }
 

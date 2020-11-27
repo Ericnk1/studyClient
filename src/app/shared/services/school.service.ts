@@ -16,8 +16,8 @@ export class SchoolService {
     return this.httpClient.get<School[]>(this.SCHOOL_BASE_URL);
   }
 
-  public restoreSchool(): Observable<School> {
-    return this.httpClient.get<School>(this.SCHOOL_BASE_URL.concat('/id'));
+  public restoreSchool(id: number): Observable<School> {
+    return this.httpClient.get<School>(this.SCHOOL_BASE_URL + '/restore' + '/' + id);
   }
 
   public addSchool(school: School): Observable<School> {
@@ -25,7 +25,7 @@ export class SchoolService {
   }
 
   public deleteSchoolById(id: number): Observable<any> {
-    return this.httpClient.delete(this.SCHOOL_BASE_URL + id);
+    return this.httpClient.delete(this.SCHOOL_BASE_URL + '/' + id);
   }
 
   public updateSchool(school: School): Observable<School> {

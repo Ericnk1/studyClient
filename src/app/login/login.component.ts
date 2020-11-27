@@ -3,6 +3,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {LoginService} from '../shared/services/login.service';
 import {Login} from '../shared/models/login';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,10 @@ import {Login} from '../shared/models/login';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private snackbar: MatSnackBar, private formBuilder: FormBuilder, private loginService: LoginService) { }
+  constructor(private snackbar: MatSnackBar,
+              private location: Location,
+              private formBuilder: FormBuilder,
+              private loginService: LoginService) { }
   loginGroup: FormGroup;
   ngOnInit(): void {
     this.loginGroup = this.formBuilder.group({
@@ -31,6 +35,9 @@ export class LoginComponent implements OnInit {
       }
     );
 
+  }
+  goBack(): void {
+    this.location.back();
   }
 
 }

@@ -17,19 +17,23 @@ export class CourseComponent implements OnInit {
   courses: Course[] = [];
   dataSource = null;
   course: Course;
+  isActive: boolean;
 
   @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit(): void {
     this.courseService.getAllCourses().subscribe(value => {
       this.courses = (value);
-      console.log(value);
+      // console.log(value);
       this.dataSource = new MatTableDataSource(this.courses);
       this.dataSource.sort = this.sort; });
 
   }
   deleteCourse(id: number): void {
-    this.courseService.deleteCourseById(id).subscribe(value => window.location.assign('/courses'));
+    this.courseService.deleteCourseById(id).subscribe(value => window.location.assign('/course'));
+  }
+  restoreCourse(id: number): void {
+    this.courseService.restoreCourse(id).subscribe(value => window.location.assign('/course'));
   }
 
 }

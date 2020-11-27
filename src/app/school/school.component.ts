@@ -23,14 +23,17 @@ export class SchoolComponent implements OnInit {
   ngOnInit(): void {
     this.schoolService.getAllSchools().subscribe(value => {
       this.schools = (value);
-      console.log(value);
+      // console.log(value);
       this.dataSource = new MatTableDataSource(this.schools);
-      console.log(this.dataSource);
+      // console.log(this.dataSource);
       this.dataSource.sort = this.sort; });
 
   }
   deleteSchool(id: number): void {
-    this.schoolService.deleteSchoolById(id).subscribe(value => window.location.reload());
+    this.schoolService.deleteSchoolById(id).subscribe(value => window.location.assign('school'));
+  }
+  restoreSchool(id: number): void {
+    this.schoolService.restoreSchool(id).subscribe(value => window.location.assign('school'));
   }
 
 }

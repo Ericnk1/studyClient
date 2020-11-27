@@ -37,12 +37,14 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { UpdateSchoolComponent } from './update-school/update-school.component';
 import { UpdateCourseComponent } from './update-course/update-course.component';
 import {MatCardModule} from '@angular/material/card';
+import { AddUserComponent } from './add-user/add-user.component';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'user', component: UserComponent},
+  {path: 'add-user', component: AddUserComponent},
   {path: 'update-user', component: UpdateUserComponent},
   {path: 'school', component: SchoolComponent},
   {path: 'add-school', component: AddSchoolComponent},
@@ -72,6 +74,7 @@ const appRoutes: Routes = [
     UpdateUserComponent,
     UpdateSchoolComponent,
     UpdateCourseComponent,
+    AddUserComponent,
   ],
   imports: [
     BrowserModule,

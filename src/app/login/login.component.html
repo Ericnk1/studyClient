@@ -1,16 +1,24 @@
-<div class="jumbotron">
-  <h1 class="display-4">Login</h1>
-  <hr class="my-4">
-  <form class="example-form" [formGroup]="loginGroup">
-    <mat-form-field class="example-full-width">
-      <mat-label>Username</mat-label>
-      <input formControlName="username" matInput type="text" placeholder="Username">
-    </mat-form-field>
+<mat-toolbar>
+  <span>Login</span>
+</mat-toolbar>
+<mat-card>
+  <mat-card-content>
+    <form class="example-form" [formGroup]="loginGroup">
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Username</mat-label>
+        <input formControlName="username" matInput type="text" placeholder="Username">
+      </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-      <mat-label>Password</mat-label>
-      <input formControlName="password" matInput type="password" placeholder="Password">
-    </mat-form-field>
-    <button mat-raised-button color="warn" (click)="login()">Login</button>
-  </form>
-</div>
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput type="password" placeholder="Password">
+      </mat-form-field>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="login()">Login</button>
+        <button (click)="goBack()" color="warn" mat-raised-button>BACK</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+

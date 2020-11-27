@@ -25,17 +25,23 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe(value => {
       this.users = (value);
-      console.log(value);
+      // console.log(value);
       this.dataSource = new MatTableDataSource(this.users);
       console.log(this.dataSource);
       this.dataSource.sort = this.sort; });
 
   }
-  useDetail(): void {
-    this.router.navigate(['/update-ser', this.Id]);
+  useDetail(id: number): void {
+    this.router.navigate(['/update-user']);
   }
   deleteUser(id: number): void {
-    this.userService.deleteUserById(id).subscribe(value => window.location.reload());
+    this.userService.deleteUserById(id).subscribe(value => window.location.assign('user'));
+  }
+  restoreUser(id: number): void {
+    this.userService.restoreUser(id).subscribe(value => window.location.assign('user'));
+  }
+  fullyDeleteUser(id: number): void {
+    this.userService.fullyDeleteUserById(id).subscribe(value => window.location.assign('user'));
   }
 
 }

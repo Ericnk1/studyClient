@@ -15,25 +15,23 @@ export class UserService {
   public getAllUsers(): Observable<User[]> {
     return this.httpClient.get<User[]>(this.USER_BASE_URL);
   }
-  public getUserById(id: string): Observable<User> {
-    return this.httpClient.get<User>(this.USER_BASE_URL + id);
+  public getUserById(id: number): Observable<User> {
+    return this.httpClient.get<User>(this.USER_BASE_URL + '/' + id);
   }
 
-  public restoreUser(): Observable<User> {
-    return this.httpClient.get<User>(this.USER_BASE_URL.concat('/id'));
+  public restoreUser(id: number): Observable<User> {
+    return this.httpClient.get<User>(this.USER_BASE_URL + '/restore' + '/' + id);
   }
 
   public addUser(user: User): Observable<User> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json'
-      })
-    };
     return this.httpClient.post<User>(this.USER_BASE_URL, user);
   }
 
   public deleteUserById(id: number): Observable<any> {
-    return this.httpClient.delete(this.USER_BASE_URL + id);
+    return this.httpClient.delete(this.USER_BASE_URL + '/' + id);
+  }
+  public fullyDeleteUserById(id: number): Observable<any> {
+    return this.httpClient.delete(this.USER_BASE_URL + '/full-delete' + '/' + id);
   }
 
   public updateUser(user: User): Observable<User> {

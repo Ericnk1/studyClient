@@ -16,8 +16,8 @@ export class CourseService {
     return this.httpClient.get<Course[]>(this.COURSE_BASE_URL);
   }
 
-  public restoreCourse(): Observable<Course> {
-    return this.httpClient.get<Course>(this.COURSE_BASE_URL.concat('/id'));
+  public restoreCourse(id: number): Observable<Course> {
+    return this.httpClient.get<Course>(this.COURSE_BASE_URL + '/restore' + '/' + id);
   }
 
   public addCourse(course: Course): Observable<Course> {
@@ -25,7 +25,7 @@ export class CourseService {
   }
 
   public deleteCourseById(id: number): Observable<any> {
-    return this.httpClient.delete(this.COURSE_BASE_URL.concat('/id'));
+    return this.httpClient.delete(this.COURSE_BASE_URL + '/' + id);
   }
 
   public updateCourse(course: Course): Observable<Course> {

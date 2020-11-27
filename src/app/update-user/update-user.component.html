@@ -1,9 +1,9 @@
 <mat-toolbar>
-  <span>Signup</span>
+  <span>Update User</span>
 </mat-toolbar>
 <mat-card>
   <mat-card-content>
-    <form class="example-form" [formGroup]="signupGroup">
+    <form class="example-form" [formGroup]="updateGroup" (ngSubmit)="update()">
       <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>Username</mat-label>
         <input formControlName="username" matInput type="text" placeholder="Username">
@@ -35,11 +35,12 @@
         </mat-select>
       </mat-form-field>
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="signup()">Signup</button>
+        <button mat-raised-button color="primary">Update</button>
         <button (click)="goBack()" color="warn" mat-raised-button>BACK</button>
       </mat-card-actions>
     </form>
   </mat-card-content>
 </mat-card>
+
 
 
