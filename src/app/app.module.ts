@@ -38,6 +38,7 @@ import { UpdateSchoolComponent } from './update-school/update-school.component';
 import { UpdateCourseComponent } from './update-course/update-course.component';
 import {MatCardModule} from '@angular/material/card';
 import { AddUserComponent } from './add-user/add-user.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -97,6 +98,7 @@ const appRoutes: Routes = [
     FormsModule,
     MatOptionModule,
     MatSelectModule,
+    MatProgressSpinnerModule,
     MatCardModule
   ],
   exports: [RouterModule],
