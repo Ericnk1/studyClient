@@ -10,6 +10,7 @@ export class User {
   course: Course[];
   isActive: boolean;
 
+
   constructor(id: number, username: string, password: string, school: School, authority: string, course: Course[], isActive: boolean) {
     this.id = id;
     this.username = username;

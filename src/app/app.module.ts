@@ -46,13 +46,13 @@ const appRoutes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'user', component: UserComponent},
   {path: 'add-user', component: AddUserComponent},
-  {path: 'update-user', component: UpdateUserComponent},
+  {path: 'update-user/:id', component: UpdateUserComponent},
   {path: 'school', component: SchoolComponent},
   {path: 'add-school', component: AddSchoolComponent},
   {path: 'update-school', component: UpdateSchoolComponent},
   {path: 'course', component: CourseComponent},
   {path: 'add-course', component: AddCourseComponent},
-  {path: 'update-course', component: UpdateCourseComponent},
+  {path: 'update-course/:id', component: UpdateCourseComponent, data: {title: 'Update Course'}},
   {path: 'contact', component: ContactComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

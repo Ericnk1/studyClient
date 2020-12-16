@@ -61,9 +61,9 @@ export class UpdateUserComponent implements OnInit {
   }
   update(): void{
     // tslint:disable-next-line:max-line-length
-    /*const user = new User(null, this.updateGroup.get('username').value, this.updateGroup.get('password').value, this.updateGroup.get('authority').value, this.updateGroup.get('school').value, this.updateGroup.get('course').value);
-    console.log(user);*/
-    console.log(this.user);
+    /*const user = new User(null, this.updateGroup.get('username').value, this.updateGroup.get('password').value, this.updateGroup.get('school').value, this.updateGroup.get('authority').value, this.updateGroup.get('course').value, null);
+    console.log(user);
+    console.log(this.user);*/
     this.userService.updateUser(this.updateGroup.value).subscribe(
       value => window.location.assign('/user')/*,
       error => {

@@ -21,7 +21,7 @@ export class SchoolComponent implements OnInit {
   constructor(private schoolService: SchoolService) { }
 
   ngOnInit(): void {
-    this.schoolService.getAllSchools().subscribe(value => {
+    this.schoolService.getAllActiveSchools().subscribe(value => {
       this.schools = (value);
       // console.log(value);
       this.dataSource = new MatTableDataSource(this.schools);

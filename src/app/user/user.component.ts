@@ -23,9 +23,9 @@ export class UserComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) { }
   ngOnInit(): void {
-    this.userService.getAllUsers().subscribe(value => {
+    this.userService.getAllActiveUsers().subscribe(value => {
       this.users = (value);
-      // console.log(value);
+      console.log(value);
       this.dataSource = new MatTableDataSource(this.users);
       console.log(this.dataSource);
       this.dataSource.sort = this.sort; });

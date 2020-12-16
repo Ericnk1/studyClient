@@ -45,9 +45,7 @@ export class AddUserComponent implements OnInit {
     });
   }
   addUser(): void{
-    const addUser = new User(null, this.addUserGroup.get('username').value,
-      this.addUserGroup.get('password').value, this.addUserGroup.get('school').value, this.addUserGroup.get('authority').value,
-      this.addUserGroup.get('course').value, null);
+    const addUser = new User(null, this.addUserGroup.get('username').value, this.addUserGroup.get('password').value, this.addUserGroup.get('school').value, this.addUserGroup.get('authority').value, this.addUserGroup.get('course').value._items, null);
     console.log(addUser);
     this.userService.addUser(addUser).subscribe(
       value => window.location.assign('/user')

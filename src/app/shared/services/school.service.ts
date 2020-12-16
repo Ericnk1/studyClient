@@ -16,6 +16,10 @@ export class SchoolService {
     return this.httpClient.get<School[]>(this.SCHOOL_BASE_URL);
   }
 
+  public getAllActiveSchools(): Observable<School[]> {
+    return this.httpClient.get<School[]>(this.SCHOOL_BASE_URL + '/active');
+  }
+
   public restoreSchool(id: number): Observable<School> {
     return this.httpClient.get<School>(this.SCHOOL_BASE_URL + '/restore' + '/' + id);
   }

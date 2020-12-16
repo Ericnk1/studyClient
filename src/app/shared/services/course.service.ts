@@ -16,6 +16,10 @@ export class CourseService {
     return this.httpClient.get<Course[]>(this.COURSE_BASE_URL);
   }
 
+  public getAllActiveCourses(): Observable<Course[]> {
+    return this.httpClient.get<Course[]>(this.COURSE_BASE_URL + '/active');
+  }
+
   public restoreCourse(id: number): Observable<Course> {
     return this.httpClient.get<Course>(this.COURSE_BASE_URL + '/restore' + '/' + id);
   }
