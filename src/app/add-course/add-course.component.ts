@@ -23,7 +23,7 @@ export class AddCourseComponent implements OnInit {
       duration: ''
     });
   }
-  addSchool(): void {
+  addCourse(): void {
     const addCourse = new Course(null, this.addCourseGroup.get('name').value,
       this.addCourseGroup.get('duration').value, null);
     console.log(addCourse);

@@ -11,6 +11,7 @@ import {SchoolService} from '../shared/services/school.service';
 import {CourseService} from '../shared/services/course.service';
 import {User} from '../shared/models/user';
 import {Location} from '@angular/common';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-user',
@@ -25,6 +26,8 @@ export class AddUserComponent implements OnInit {
 
   constructor(private snackbar: MatSnackBar,
               private location: Location,
+              private route: ActivatedRoute,
+              private router: Router,
               private userService: UserService,
               private formBuilder: FormBuilder,
               private signupService: SignupService,
@@ -45,7 +48,8 @@ export class AddUserComponent implements OnInit {
     });
   }
   addUser(): void{
-    const addUser = new User(null, this.addUserGroup.get('username').value, this.addUserGroup.get('password').value, this.addUserGroup.get('school').value, this.addUserGroup.get('authority').value, this.addUserGroup.get('course').value._items, null);
+    const addUser = new User(null, this.addUserGroup.get('username').value, this.addUserGroup.get('password').value,
+      this.addUserGroup.get('school').value, this.addUserGroup.get('authority').value, this.addUserGroup.get('course').value._items, null);
     console.log(addUser);
     this.userService.addUser(addUser).subscribe(
       value => window.location.assign('/user')
@@ -53,7 +57,7 @@ export class AddUserComponent implements OnInit {
 
   }
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/user']);
   }
 
 }
