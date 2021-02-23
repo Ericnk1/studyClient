@@ -17,19 +17,19 @@
   "private": true,
   "dependencies": {
     "@agm/core": "^3.0.0-beta.0",
-    "@angular/animations": "^10.0.14",
+    "@angular/animations": "^11.2.2",
     "@angular/cli": "^11.2.1",
-    "@angular/compiler-cli": "^10.2.4",
+    "@angular/compiler-cli": "^11.2.2",
     "@angular/cdk": "^10.2.7",
-    "@angular/common": "~10.0.14",
-    "@angular/compiler": "~10.0.14",
-    "@angular/core": "~10.0.14",
+    "@angular/common": "~11.2.2",
+    "@angular/compiler": "~11.2.2",
+    "@angular/core": "~11.2.2",
     "@angular/flex-layout": "^10.0.0-beta.32",
-    "@angular/forms": "~10.0.14",
+    "@angular/forms": "~11.2.2",
     "@angular/material": "^10.2.7",
-    "@angular/platform-browser": "~10.0.14",
-    "@angular/platform-browser-dynamic": "~10.0.14",
-    "@angular/router": "~10.0.14",
+    "@angular/platform-browser": "~11.2.2",
+    "@angular/platform-browser-dynamic": "~11.2.2",
+    "@angular/router": "~11.2.2",
     "@types/googlemaps": "^3.43.3",
     "agm-core": "^1.0.0-beta.5",
     "express": "^4.17.1",
@@ -40,13 +40,12 @@
     "path": "^0.12.7",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
-    "typescript": "~3.9.5",
+    "typescript": "~4.1.5",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1002.0",
     "@angular/cli": "^11.2.1",
-    "@angular/compiler-cli": "^10.2.4",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
@@ -60,7 +59,6 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
-    "tslint": "~6.1.0",
-    "typescript": "~3.9.5"
+    "tslint": "~6.1.0"
   }
 }
