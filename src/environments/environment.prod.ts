@@ -3,5 +3,5 @@ export const environment = {
   production: true,
   development: false,
   environmentName: 'PROD',
-  baseURL: 'https://spring-study-app.herokuapp.com/'
+  baseURL: 'https://cors-anywhere.herokuapp.com/https://spring-study-app.herokuapp.com/'
 };
