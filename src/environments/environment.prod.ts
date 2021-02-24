@@ -3,5 +3,5 @@ export const environment = {
   production: true,
   development: false,
   environmentName: 'PROD',
-  baseURL: 'http://localhost:8080/'
+  baseURL: 'https://spring-study-app.herokuapp.com/'
 };
