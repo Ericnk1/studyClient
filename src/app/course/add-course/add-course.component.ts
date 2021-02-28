@@ -20,7 +20,7 @@ export class AddCourseComponent implements OnInit {
   ngOnInit(): void {
     this.addCourseGroup = this.formBuilder.group({
       name: '',
-      duration: ''
+      durationHours: ''
     });
   }
   addCourse(): void {

@@ -30,7 +30,7 @@ export class UpdateCourseComponent implements OnInit {
     this.updateCourseGroup = this.formBuilder.group({
       id: this.course.id,
       name: this.course.name,
-      duration: this.course.durationHours,
+      durationHours: this.course.durationHours,
     });
   }
   updateCourse(course: Course): void {
