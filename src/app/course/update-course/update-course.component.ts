@@ -3,7 +3,7 @@ import {CourseService} from '../../shared/services/course.service';
 import {Location} from '@angular/common';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Course} from '../../shared/models/course';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-update-course',
@@ -14,7 +14,7 @@ export class UpdateCourseComponent implements OnInit {
 
   course: Course;
 
-  constructor(private courseService: CourseService, private location: Location,
+  constructor(private courseService: CourseService, private location: Location, private router: Router,
               private route: ActivatedRoute, private formBuilder: FormBuilder) {
     this.course = {} as Course;
   }
@@ -42,7 +42,7 @@ export class UpdateCourseComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/course']);
   }
 
 }

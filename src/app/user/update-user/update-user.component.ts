@@ -11,7 +11,7 @@ import {SchoolService} from '../../shared/services/school.service';
 import {CourseService} from '../../shared/services/course.service';
 import {User} from '../../shared/models/user';
 import {Location} from '@angular/common';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-update-user',
@@ -29,6 +29,7 @@ export class UpdateUserComponent implements OnInit {
   constructor(private snackbar: MatSnackBar,
               private location: Location,
               private route: ActivatedRoute,
+              private router: Router,
               private userService: UserService,
               private formBuilder: FormBuilder,
               private signupService: SignupService,
@@ -85,6 +86,6 @@ export class UpdateUserComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/user']);
   }
 }

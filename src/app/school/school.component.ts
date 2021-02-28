@@ -53,7 +53,7 @@ export class SchoolComponent implements OnInit {
     this.schoolService.restoreSchool(id).subscribe(value => window.location.assign('school'));
   }
   update(school: School): void {
-    this.router.navigate(['/update-course', school.id]);
+    this.router.navigate(['/update-school', school.id]);
   }
 
 }

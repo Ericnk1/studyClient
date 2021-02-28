@@ -40,8 +40,8 @@ export class AddUserComponent implements OnInit {
   addUserGroup: FormGroup;
   ngOnInit(): void {
     this.authorityService.getAllAuthorities().subscribe(value => this.authorities = value);
-    this.schoolService.getAllSchools().subscribe(value => this.schools = value);
-    this.courseService.getAllCourses().subscribe(value => this.courses = value);
+    this.schoolService.getAllActiveSchools().subscribe(value => this.schools = value);
+    this.courseService.getAllActiveCourses().subscribe(value => this.courses = value);
     this.addUserGroup = this.formBuilder.group({
       username: '',
       password: '',
