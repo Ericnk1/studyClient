@@ -31,13 +31,13 @@ import {MatSortModule} from '@angular/material/sort';
 import { AuthorityComponent } from './authority/authority.component';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
-import { AddCourseComponent } from './add-course/add-course.component';
-import { AddSchoolComponent } from './add-school/add-school.component';
-import { UpdateUserComponent } from './update-user/update-user.component';
-import { UpdateSchoolComponent } from './update-school/update-school.component';
-import { UpdateCourseComponent } from './update-course/update-course.component';
+import { AddCourseComponent } from './course/add-course/add-course.component';
+import { AddSchoolComponent } from './school/add-school/add-school.component';
+import { UpdateUserComponent } from './user/update-user/update-user.component';
+import { UpdateSchoolComponent } from './school/update-school/update-school.component';
+import { UpdateCourseComponent } from './course/update-course/update-course.component';
 import {MatCardModule} from '@angular/material/card';
-import { AddUserComponent } from './add-user/add-user.component';
+import { AddUserComponent } from './user/add-user/add-user.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {AgmCoreModule, MapsAPILoader} from '@agm/core';
 
@@ -51,10 +51,10 @@ const appRoutes: Routes = [
   {path: 'update-user/:id', component: UpdateUserComponent},
   {path: 'school', component: SchoolComponent},
   {path: 'add-school', component: AddSchoolComponent},
-  {path: 'update-school', component: UpdateSchoolComponent},
+  {path: 'update-school/:id', component: UpdateSchoolComponent},
   {path: 'course', component: CourseComponent},
   {path: 'add-course', component: AddCourseComponent},
-  {path: 'update-course/:id', component: UpdateCourseComponent, data: {title: 'Update Course'}},
+  {path: 'update-course/:id', component: UpdateCourseComponent}, // data: {title: 'Update Course'},
   {path: 'contact', component: ContactComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

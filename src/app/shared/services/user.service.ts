@@ -19,7 +19,7 @@ export class UserService {
     return this.httpClient.get<User[]>(this.USER_BASE_URL + '/active');
   }
   public getUserById(id: number): Observable<User> {
-    return this.httpClient.get<User>(this.USER_BASE_URL + '/' + id);
+    return this.httpClient.get<User>(this.USER_BASE_URL + '/user' + '/' + id);
   }
 
   public restoreUser(id: number): Observable<User> {

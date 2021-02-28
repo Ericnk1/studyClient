@@ -19,6 +19,9 @@ export class CourseService {
   public getAllActiveCourses(): Observable<Course[]> {
     return this.httpClient.get<Course[]>(this.COURSE_BASE_URL + '/active');
   }
+  public getCourseById(id: number): Observable<Course> {
+    return this.httpClient.get<Course>(this.COURSE_BASE_URL + '/course' + '/' + id);
+  }
 
   public restoreCourse(id: number): Observable<Course> {
     return this.httpClient.get<Course>(this.COURSE_BASE_URL + '/restore' + '/' + id);
@@ -30,6 +33,10 @@ export class CourseService {
 
   public deleteCourseById(id: number): Observable<any> {
     return this.httpClient.delete(this.COURSE_BASE_URL + '/' + id);
+  }
+
+  public fullyDeleteCourseById(id: number): Observable<any> {
+    return this.httpClient.delete(this.COURSE_BASE_URL + '/full-delete' + '/' + id);
   }
 
   public updateCourse(course: Course): Observable<Course> {

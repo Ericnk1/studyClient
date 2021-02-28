@@ -1,43 +1,97 @@
-<div fxLayout="row" fxShow="false" fxShow.gt-sm>
-  <button><a mat-button routerLink="/add-school">Add school</a></button>
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button><a mat-button routerLink="/add-school">Add school</a></button>
+  </div>
+
+  <mat-toolbar>
+    <span>List of active Schools</span>
+  </mat-toolbar>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+      <td mat-cell *matCellDef="let school"> {{school.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let school"> {{school.name}} </td>
+    </ng-container>
+
+    <!-- City Column -->
+    <ng-container matColumnDef="city">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+      <td mat-cell *matCellDef="let school"> {{school.city}} </td>
+    </ng-container>
+
+    <!-- Phone Column -->
+    <ng-container matColumnDef="phone">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+      <td mat-cell *matCellDef="let school"> {{school.phone}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let school">
+        <mat-card-actions>
+          <button mat-raised-button (click)="update(school)" color="primary">Update</button>
+          <button mat-raised-button (click)="deleteSchool(school.id)" color="warn">Delete</button>
+          <button mat-raised-button (click)="restoreSchool(school.id)">Restore</button>
+        </mat-card-actions>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+  <mat-toolbar>
+    <span>List of all Schools</span>
+  </mat-toolbar>
+  <table mat-table [dataSource]="dataSourceAll" matSort class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+      <td mat-cell *matCellDef="let school"> {{school.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let school"> {{school.name}} </td>
+    </ng-container>
+
+    <!-- City Column -->
+    <ng-container matColumnDef="city">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+      <td mat-cell *matCellDef="let school"> {{school.city}} </td>
+    </ng-container>
+
+    <!-- Phone Column -->
+    <ng-container matColumnDef="phone">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+      <td mat-cell *matCellDef="let school"> {{school.phone}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let school">
+        <mat-card-actions>
+          <button mat-raised-button (click)="update(school)" color="primary">Update</button>
+          <button mat-raised-button (click)="deleteSchool(school.id)" color="warn">Delete</button>
+          <button mat-raised-button (click)="fullyDeleteSchool(school.id)" color="accent">Delete</button>
+          <button mat-raised-button (click)="restoreSchool(school.id)">Restore</button>
+        </mat-card-actions>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsAll"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsAll;"></tr>
+  </table>
 </div>
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
-  <!-- Position Column -->
-  <ng-container matColumnDef="id">
-    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
-
-  <!-- City Column -->
-  <ng-container matColumnDef="city">
-    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
-    <td mat-cell *matCellDef="let element"> {{element.city}} </td>
-  </ng-container>
-
-  <!-- Phone Column -->
-  <ng-container matColumnDef="phone">
-    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
-    <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="button">
-    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
-    <td mat-cell *matCellDef="let element">
-      <mat-card-actions>
-        <button mat-raised-button routerLink="/update-school" color="primary">Update</button>
-        <button mat-raised-button (click)="deleteSchool(element.id)" color="warn">Delete</button>
-        <button mat-raised-button (click)="restoreSchool(element.id)">Restore</button>
-      </mat-card-actions>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>

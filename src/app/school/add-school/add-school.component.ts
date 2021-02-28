@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {SchoolService} from '../shared/services/school.service';
-import {School} from '../shared/models/school';
+import {SchoolService} from '../../shared/services/school.service';
+import {School} from '../../shared/models/school';
 import {Location} from '@angular/common';
 
 @Component({

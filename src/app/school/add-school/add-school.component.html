@@ -6,21 +6,27 @@
     <form [formGroup]="addSchoolGroup"  class="my-form">
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>School Name</mat-label>
-        <input formControlName="name" matInput>
+        <label>
+          <input type="text" formControlName="name" matInput placeholder="name" required>
+        </label>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>City</mat-label>
-        <input formControlName="city" matInput>
+        <label>
+          <input type="text" formControlName="city" matInput placeholder="city" required>
+        </label>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Phone</mat-label>
-        <input formControlName="phone" matInput>
+        <label>
+          <input type="tel" formControlName="phone" matInput placeholder="phone" required>
+        </label>
       </mat-form-field>
       <br>
       <mat-card-actions>
-        <button (click)="addSchool()" color="primary" mat-raised-button>Add school</button>
+        <button (click)="addSchool()" color="primary" [disabled]="addSchoolGroup.invalid" mat-raised-button>Add school</button>
         <button (click)="goBack()" color="warn" mat-raised-button>BACK</button>
       </mat-card-actions>
     </form>

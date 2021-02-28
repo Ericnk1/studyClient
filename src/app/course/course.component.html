@@ -1,37 +1,88 @@
-<div fxLayout="row" fxShow="false" fxShow.gt-sm>
-  <button><a mat-button routerLink="/add-course">Add course</a></button>
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button><a mat-button routerLink="/add-course">Add course</a></button>
+  </div>
+
+  <mat-toolbar>
+    <span>List of active Courses</span>
+  </mat-toolbar>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+      <td mat-cell *matCellDef="let course"> {{course.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let course"> {{course.name}} </td>
+    </ng-container>
+
+    <!-- durationHours Column -->
+    <ng-container matColumnDef="durationHours">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Duration </th>
+      <td mat-cell *matCellDef="let course"> {{course.durationHours}} h</td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let course">
+        <mat-card-actions>
+          <button mat-raised-button (click)="update(course)" color="primary">Update</button>
+          <button mat-raised-button color="warn" (click)="deleteCourse(course.id)">Delete</button>
+          <button mat-raised-button (click)="restoreCourse(course.id)">Restore</button>
+        </mat-card-actions>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+  <mat-toolbar>
+    <span>List of all Courses</span>
+  </mat-toolbar>
+
+  <table mat-table [dataSource]="dataSourceAll" matSort class="mat-elevation-z8">
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+      <td mat-cell *matCellDef="let course"> {{course.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let course"> {{course.name}} </td>
+    </ng-container>
+
+    <!-- durationHours Column -->
+    <ng-container matColumnDef="durationHours">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Duration </th>
+      <td mat-cell *matCellDef="let course"> {{course.durationHours}} h</td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let course">
+        <mat-card-actions>
+          <button mat-raised-button (click)="update(course)" color="primary">Update</button>
+          <button mat-raised-button color="warn" (click)="deleteCourse(course.id)">Delete</button>
+          <button mat-raised-button color="accent" (click)="fullyDeleteCourse(course.id)">Delete</button>
+          <button mat-raised-button (click)="restoreCourse(course.id)">Restore</button>
+        </mat-card-actions>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsAll"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsAll;"></tr>
+  </table>
 </div>
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="id">
-    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
-    <td mat-cell *matCellDef="let course"> {{course.id}} </td>
-  </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-    <td mat-cell *matCellDef="let course"> {{course.name}} </td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="durationHours">
-    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Duration </th>
-    <td mat-cell *matCellDef="let course"> {{course.durationHours}} h</td>
-  </ng-container>
-
-  <ng-container matColumnDef="button">
-    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
-    <td mat-cell *matCellDef="let course">
-      <mat-card-actions>
-        <button mat-raised-button routerLink="/update-course" color="primary">Update</button>
-        <button mat-raised-button color="warn" (click)="deleteCourse(course.id)">Delete</button>
-        <button mat-raised-button (click)="restoreCourse(course.id)">Restore</button>
-      </mat-card-actions>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>

@@ -16,9 +16,12 @@ export class CourseComponent implements OnInit {
               private router: Router) { }
 
   displayedColumns: string[] = ['id', 'name', 'durationHours', 'button'];
+  dataSource = null;
+
+  displayedColumnsAll: string[] = ['id', 'name', 'durationHours', 'button'];
+  dataSourceAll = null;
 
   courses: Course[] = [];
-  dataSource = null;
   course: Course;
   isActive: boolean;
 
@@ -31,15 +34,24 @@ export class CourseComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.courses);
       this.dataSource.sort = this.sort; });
 
+    this.courseService.getAllCourses().subscribe(value => {
+      this.courses = (value);
+      // console.log(value);
+      this.dataSourceAll = new MatTableDataSource(this.courses);
+      this.dataSourceAll.sort = this.sort; });
+
   }
   deleteCourse(id: number): void {
     this.courseService.deleteCourseById(id).subscribe(value => window.location.assign('/course'));
   }
+  fullyDeleteCourse(id: number): void {
+    this.courseService.fullyDeleteCourseById(id).subscribe(value => window.location.assign('/course'));
+  }
   restoreCourse(id: number): void {
     this.courseService.restoreCourse(id).subscribe(value => window.location.assign('/course'));
   }
-  /*update(): void {
-    this.router.navigate(['/update-course', this.course]);
-  }*/
+  update(course: Course): void {
+    this.router.navigate(['/update-course', course.id]);
+  }
 
 }

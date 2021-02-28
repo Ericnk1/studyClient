@@ -13,11 +13,14 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class UserComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'userName', 'school', 'course', 'button'];
+  dataSource = null;
+
+  displayedColumnsAll: string[] = ['id', 'userName', 'school', 'course', 'button'];
+  dataSourceAll = null;
 
   Id: number;
   user: User;
   users: User[] = [];
-  dataSource = null;
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -30,9 +33,16 @@ export class UserComponent implements OnInit {
       console.log(this.dataSource);
       this.dataSource.sort = this.sort; });
 
+    this.userService.getAllUsers().subscribe(value => {
+      this.users = (value);
+      console.log(value);
+      this.dataSourceAll = new MatTableDataSource(this.users);
+      console.log(this.dataSourceAll);
+      this.dataSourceAll.sort = this.sort; });
+
   }
-  useDetail(id: number): void {
-    this.router.navigate(['/update-user']);
+  update(user: User): void {
+    this.router.navigate(['/update-user', user.id]);
   }
   deleteUser(id: number): void {
     this.userService.deleteUserById(id).subscribe(value => window.location.assign('user'));

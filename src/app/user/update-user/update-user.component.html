@@ -3,31 +3,42 @@
 </mat-toolbar>
 <mat-card>
   <mat-card-content>
-    <form class="example-form" [formGroup]="updateGroup" (ngSubmit)="update()">
+    <form class="example-form" [formGroup]="updateGroup" (ngSubmit)="update(updateGroup.value)">
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Id</mat-label>
+        <label>
+          <input formControlName="id" matInput type="number" placeholder="id" required>
+        </label>
+      </mat-form-field>
+      <br>
       <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>Username</mat-label>
-        <input formControlName="username" matInput type="text" placeholder="Username">
+        <label>
+          <input formControlName="username" matInput type="text" placeholder="Username" required>
+        </label>
       </mat-form-field>
-
+      <br>
       <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>Password</mat-label>
-        <input formControlName="password" matInput type="password" placeholder="Password">
+        <label>
+          <input formControlName="password" matInput type="password" placeholder="Password" required>
+        </label>
       </mat-form-field>
-
+      <br>
       <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>Status</mat-label>
         <mat-select formControlName="authority">
           <mat-option *ngFor="let authority of authorities" [value]="authority">{{authority.name}}</mat-option>
         </mat-select>
       </mat-form-field>
-
+      <br>
       <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>School</mat-label>
         <mat-select formControlName="school">
           <mat-option *ngFor="let school of schools" [value]="school">{{school.name}}</mat-option>
         </mat-select>
       </mat-form-field>
-
+      <br>
       <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>Course</mat-label>
         <mat-select formControlName="course">
@@ -35,7 +46,7 @@
         </mat-select>
       </mat-form-field>
       <mat-card-actions>
-        <button mat-raised-button color="primary">Update</button>
+        <button mat-raised-button color="primary" [disabled]="updateGroup.invalid">Update</button>
         <button (click)="goBack()" color="warn" mat-raised-button>BACK</button>
       </mat-card-actions>
     </form>

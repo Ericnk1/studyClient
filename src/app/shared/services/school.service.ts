@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {School} from '../models/school';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Course} from '../models/course';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class SchoolService {
     return this.httpClient.get<School[]>(this.SCHOOL_BASE_URL + '/active');
   }
 
+  public getSchoolById(id: number): Observable<School> {
+    return this.httpClient.get<School>(this.SCHOOL_BASE_URL + '/school' + '/' + id);
+  }
+
   public restoreSchool(id: number): Observable<School> {
     return this.httpClient.get<School>(this.SCHOOL_BASE_URL + '/restore' + '/' + id);
   }
@@ -30,6 +35,10 @@ export class SchoolService {
 
   public deleteSchoolById(id: number): Observable<any> {
     return this.httpClient.delete(this.SCHOOL_BASE_URL + '/' + id);
+  }
+
+  public fullyDeleteSchoolById(id: number): Observable<any> {
+    return this.httpClient.delete(this.SCHOOL_BASE_URL + '/full-delete' + '/' + id);
   }
 
   public updateSchool(school: School): Observable<School> {

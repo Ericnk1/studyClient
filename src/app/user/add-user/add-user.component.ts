@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {Authority} from '../shared/models/authority';
-import {School} from '../shared/models/school';
-import {Course} from '../shared/models/course';
+import {Authority} from '../../shared/models/authority';
+import {School} from '../../shared/models/school';
+import {Course} from '../../shared/models/course';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {UserService} from '../shared/services/user.service';
+import {UserService} from '../../shared/services/user.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {SignupService} from '../shared/services/signup.service';
-import {AuthorityService} from '../shared/services/authority.service';
-import {SchoolService} from '../shared/services/school.service';
-import {CourseService} from '../shared/services/course.service';
-import {User} from '../shared/models/user';
+import {SignupService} from '../../shared/services/signup.service';
+import {AuthorityService} from '../../shared/services/authority.service';
+import {SchoolService} from '../../shared/services/school.service';
+import {CourseService} from '../../shared/services/course.service';
+import {User} from '../../shared/models/user';
 import {Location} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -23,6 +23,7 @@ export class AddUserComponent implements OnInit {
   authorities: Authority[];
   schools: School[];
   courses: Course[];
+  user: User;
 
   constructor(private snackbar: MatSnackBar,
               private location: Location,
@@ -33,7 +34,9 @@ export class AddUserComponent implements OnInit {
               private signupService: SignupService,
               private authorityService: AuthorityService,
               private schoolService: SchoolService,
-              private courseService: CourseService) { }
+              private courseService: CourseService) {
+    this.user = {} as User;
+  }
   addUserGroup: FormGroup;
   ngOnInit(): void {
     this.authorityService.getAllAuthorities().subscribe(value => this.authorities = value);
@@ -47,11 +50,14 @@ export class AddUserComponent implements OnInit {
       course: ''
     });
   }
-  addUser(): void{
-    const addUser = new User(null, this.addUserGroup.get('username').value, this.addUserGroup.get('password').value,
-      this.addUserGroup.get('school').value, this.addUserGroup.get('authority').value, this.addUserGroup.get('course').value._items, null);
-    console.log(addUser);
-    this.userService.addUser(addUser).subscribe(
+  addUser(user: User): void{
+    user.id = null;
+    this.user = this.addUserGroup.value;
+    /*const addUser = new User(null, this.addUserGroup.get('username').value, this.addUserGroup.get('password').value,
+      this.addUserGroup.get('school').value, this.addUserGroup.get('authority').value,
+      this.addUserGroup.get('course').value._items, null);*/
+    console.log(user);
+    this.userService.addUser(user).subscribe(
       value => window.location.assign('/user')
     );
 

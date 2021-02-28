@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {SchoolService} from '../shared/services/school.service';
+import {SchoolService} from '../../shared/services/school.service';
 import {Location} from '@angular/common';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {School} from '../shared/models/school';
-import {Course} from '../shared/models/course';
-import {CourseService} from '../shared/services/course.service';
+import {School} from '../../shared/models/school';
+import {Course} from '../../shared/models/course';
+import {CourseService} from '../../shared/services/course.service';
 
 @Component({
   selector: 'app-add-course',
