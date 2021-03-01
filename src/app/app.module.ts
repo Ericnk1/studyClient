@@ -40,6 +40,7 @@ import {MatCardModule} from '@angular/material/card';
 import { AddUserComponent } from './user/add-user/add-user.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {AgmCoreModule, MapsAPILoader} from '@agm/core';
+import { AdminComponent } from './admin/admin.component';
 
 
 const appRoutes: Routes = [
@@ -78,6 +79,7 @@ const appRoutes: Routes = [
     UpdateSchoolComponent,
     UpdateCourseComponent,
     AddUserComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
