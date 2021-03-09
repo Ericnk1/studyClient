@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
               private loginService: LoginService) { }
   loginGroup: FormGroup;
   ngOnInit(): void {
+    localStorage.removeItem('isLoginValid');
     this.loginGroup = this.formBuilder.group({
       username: '',
       password: ''
@@ -26,7 +27,10 @@ export class LoginComponent implements OnInit {
   login(): void{
     const login = new Login(this.loginGroup.get('username').value, this.loginGroup.get('password').value);
     this.loginService.validateLogin(login).subscribe(
-      value => window.location.assign('/home'),
+      value => {
+        localStorage.setItem('isLoginValid', 'true');
+        window.location.assign('/home');
+        },
       error => {
         this.snackbar.open(error.error.message.concat(error.error.details[0]), 'close', {
           duration: 6000,
