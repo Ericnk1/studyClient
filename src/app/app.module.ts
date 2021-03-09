@@ -40,7 +40,6 @@ import {MatCardModule} from '@angular/material/card';
 import { AddUserComponent } from './user/add-user/add-user.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {AgmCoreModule, MapsAPILoader} from '@agm/core';
-import { AdminComponent } from './admin/admin.component';
 
 
 const appRoutes: Routes = [
@@ -55,7 +54,7 @@ const appRoutes: Routes = [
   {path: 'update-school/:id', component: UpdateSchoolComponent},
   {path: 'course', component: CourseComponent},
   {path: 'add-course', component: AddCourseComponent},
-  {path: 'update-course/:id', component: UpdateCourseComponent}, // data: {title: 'Update Course'},
+  {path: 'update-course/:id', component: UpdateCourseComponent},
   {path: 'contact', component: ContactComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
@@ -79,7 +78,6 @@ const appRoutes: Routes = [
     UpdateSchoolComponent,
     UpdateCourseComponent,
     AddUserComponent,
-    AdminComponent,
   ],
   imports: [
     BrowserModule,
