@@ -107,7 +107,7 @@ const appRoutes: Routes = [
     MatProgressSpinnerModule,
     MatCardModule
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, MatListModule],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AppInterceptor,
