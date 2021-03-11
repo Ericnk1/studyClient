@@ -1,5 +1,8 @@
 img{
-  height: 400px;
-  width: 500px;
+
 }
 
+.mat-card img{
+  height: 50%;
+  width: 50%;
+}
