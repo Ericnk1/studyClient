@@ -43,6 +43,7 @@ export class AddUserComponent implements OnInit {
     this.schoolService.getAllActiveSchools().subscribe(value => this.schools = value);
     this.courseService.getAllActiveCourses().subscribe(value => this.courses = value);
     this.addUserGroup = this.formBuilder.group({
+      id: null,
       username: '',
       password: '',
       school: '',
@@ -50,14 +51,12 @@ export class AddUserComponent implements OnInit {
       course: ''
     });
   }
-  addUser(user: User): void{
-    user.id = null;
-    this.user = this.addUserGroup.value;
-    /*const addUser = new User(null, this.addUserGroup.get('username').value, this.addUserGroup.get('password').value,
+  addUser(): void{
+    const addUser = new User(null, this.addUserGroup.get('username').value, this.addUserGroup.get('password').value,
       this.addUserGroup.get('school').value, this.addUserGroup.get('authority').value,
-      this.addUserGroup.get('course').value._items, null);*/
-    console.log(user);
-    this.userService.addUser(user).subscribe(
+      this.addUserGroup.get('course').value._items, null);
+    console.log(addUser);
+    this.userService.addUser(addUser).subscribe(
       value => window.location.assign('/user')
     );
 

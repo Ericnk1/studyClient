@@ -7,7 +7,7 @@ export const environment = {
   production: false,
   development: true,
   environmentName: 'DEV',
-  baseURL: 'https://spring-study-app.herokuapp.com/'
+  baseURL: 'https://spring-study-app.herokuapp.com/'  // 'http://localhost:8080/'
 };
 
 /*
