@@ -25,7 +25,7 @@ export class AddCourseComponent implements OnInit {
   }
   addCourse(): void {
     const addCourse = new Course(null, this.addCourseGroup.get('name').value,
-      this.addCourseGroup.get('duration').value, null);
+      this.addCourseGroup.get('durationHours').value, null);
     console.log(addCourse);
     this.courseService.addCourse(addCourse).subscribe(value => window.location.assign('/course'));
   }
