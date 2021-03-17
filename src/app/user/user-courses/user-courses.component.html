@@ -1,0 +1,21 @@
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+  <mat-toolbar>
+    <span>pets</span>
+  </mat-toolbar>
+
+  <table id="pet1" mat-table  class="mat-elevation-z8">
+
+    <mat-card class="mat-elevation-z4" *ngFor="let course of courses">
+      <mat-card-header>
+        <mat-card-title>{{course.name | uppercase}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Course Id: {{course.id}}</p>
+        <p>Duration: {{course.durationHours}}</p>
+      </mat-card-content>
+    </mat-card>
+  </table>
+  <button (click)="goBack()" color="primary" mat-raised-button>BACK</button>
+</div>
