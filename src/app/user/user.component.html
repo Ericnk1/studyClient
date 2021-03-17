@@ -38,9 +38,10 @@
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
       <td mat-cell *matCellDef="let user">
         <mat-card-actions>
+          <button mat-raised-button (click)="userCourses(user)" color="primary">Courses</button>
           <button mat-raised-button (click)="update(user)" color="primary">Update</button>
           <button mat-raised-button (click)="deleteUser(user.id)" color="warn">Delete</button>
-          <button mat-raised-button (click)="restoreUser(user.id)">Restore</button>
+          <!--<button mat-raised-button (click)="restoreUser(user.id)">Restore</button>-->
         </mat-card-actions>
       </td>
     </ng-container>
@@ -74,17 +75,17 @@
     </ng-container>
 
     <!-- Course Column -->
-    <ng-container matColumnDef="course">
+    <!--<ng-container matColumnDef="course">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Courses </th>
       <td mat-cell *matCellDef="let user"> {{user.course.name}} </td>
-    </ng-container>
+    </ng-container>-->
 
     <ng-container matColumnDef="button">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
       <td mat-cell *matCellDef="let user">
         <mat-card-actions>
-          <button mat-raised-button (click)="update(user)" color="primary">Update</button>
-          <button mat-raised-button (click)="deleteUser(user.id)" color="warn">Delete</button>
+          <!--<button mat-raised-button (click)="update(user)" color="primary">Update</button>
+          <button mat-raised-button (click)="deleteUser(user.id)" color="warn">Delete</button>-->
           <button mat-raised-button (click)="fullyDeleteUser(user.id)" color="accent">Full Delete</button>
           <button mat-raised-button (click)="restoreUser(user.id)">Restore</button>
         </mat-card-actions>

@@ -34,7 +34,7 @@
         <mat-card-actions>
           <button mat-raised-button (click)="update(course)" color="primary">Update</button>
           <button mat-raised-button color="warn" (click)="deleteCourse(course.id)">Delete</button>
-          <button mat-raised-button (click)="restoreCourse(course.id)">Restore</button>
+          <!--<button mat-raised-button (click)="restoreCourse(course.id)">Restore</button>-->
         </mat-card-actions>
       </td>
     </ng-container>
@@ -72,8 +72,8 @@
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
       <td mat-cell *matCellDef="let course">
         <mat-card-actions>
-          <button mat-raised-button (click)="update(course)" color="primary">Update</button>
-          <button mat-raised-button color="warn" (click)="deleteCourse(course.id)">Delete</button>
+          <!--<button mat-raised-button (click)="update(course)" color="primary">Update</button>
+          <button mat-raised-button color="warn" (click)="deleteCourse(course.id)">Delete</button>-->
           <button mat-raised-button color="accent" (click)="fullyDeleteCourse(course.id)">Full Delete</button>
           <button mat-raised-button (click)="restoreCourse(course.id)">Restore</button>
         </mat-card-actions>

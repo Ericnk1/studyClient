@@ -12,10 +12,10 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class UserComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'userName', 'school', 'course', 'button'];
+  displayedColumns: string[] = ['id', 'userName', 'school', 'button'];
   dataSource = null;
 
-  displayedColumnsAll: string[] = ['id', 'userName', 'school', 'course', 'button'];
+  displayedColumnsAll: string[] = ['id', 'userName', 'school', 'button'];
   dataSourceAll = null;
 
   Id: number;
@@ -52,6 +52,10 @@ export class UserComponent implements OnInit {
   }
   fullyDeleteUser(id: number): void {
     this.userService.fullyDeleteUserById(id).subscribe(value => window.location.assign('user'));
+  }
+
+  userCourses(user: User): void {
+    this.router.navigate(['user', user.id]);
   }
 
 }
