@@ -5,21 +5,18 @@
   <mat-card-content>
     <form [formGroup]="updateCourseGroup" (ngSubmit)="updateCourse(updateCourseGroup.value)"  class="my-form">
       <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Course Id</mat-label>
         <label>
           <input formControlName="id" matInput placeholder="id" required>
         </label>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Course Name</mat-label>
         <label>
           <input formControlName="name" matInput placeholder="name" required>
         </label>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Duration</mat-label>
         <label>
           <input formControlName="durationHours" matInput placeholder="durationHours" required>
         </label>

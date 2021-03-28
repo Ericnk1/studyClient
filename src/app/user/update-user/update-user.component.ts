@@ -4,7 +4,7 @@ import {School} from '../../shared/models/school';
 import {Course} from '../../shared/models/course';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {UserService} from '../../shared/services/user.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {SignupService} from '../../shared/services/signup.service';
 import {AuthorityService} from '../../shared/services/authority.service';
 import {SchoolService} from '../../shared/services/school.service';
@@ -20,7 +20,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class UpdateUserComponent implements OnInit {
 
-  Id: number;
   user: User;
   authorities: Authority[];
   schools: School[];
@@ -44,14 +43,18 @@ export class UpdateUserComponent implements OnInit {
     this.authorityService.getAllAuthorities().subscribe(value => this.authorities = value);
     this.schoolService.getAllSchools().subscribe(value => this.schools = value);
     this.courseService.getAllCourses().subscribe(value => this.courses = value);
-    this.userService.getUserById(this.user.id).subscribe(value => this.user = value);
+    this.userService.getUserById(this.user.id).subscribe(value => {
+      this.user = value;
+      console.log(value);
+      this.updateGroup.setValue(this.user);
+    });
     this.updateGroup = this.formBuilder.group({
-      id: this.user.id,
-      username: this.user.username,
-      password: this.user.password,
-      authority: this.user.authority,
-      school: this.user.school,
-      course: this.user.course
+      id: new FormControl(this.user.id, Validators.required),
+      username: new FormControl(this.user.username, Validators.required),
+      password: new FormControl(this.user.password, Validators.required),
+      authority: new FormControl(this.user.authority),
+      school: new FormControl(this.user.school),
+      course: new FormControl(this.user.course)
     });
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseService} from '../../shared/services/course.service';
 import {Location} from '@angular/common';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Course} from '../../shared/models/course';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -26,15 +26,16 @@ export class UpdateCourseComponent implements OnInit {
     this.courseService.getCourseById(this.course.id).subscribe(course => {
       this.course = course;
       console.log(this.course);
+      this.updateCourseGroup.setValue(this.course);
     });
     this.updateCourseGroup = this.formBuilder.group({
-      id: this.course.id,
-      name: this.course.name,
-      durationHours: this.course.durationHours,
+      id: new FormControl(this.course.id, Validators.required),
+      name: new  FormControl(this.course.name, Validators.required),
+      durationHours: new FormControl(this.course.durationHours, Validators.required),
     });
   }
   updateCourse(course: Course): void {
-    this.course = this.updateCourseGroup.value;
+    course = this.updateCourseGroup.value;
     /*const updateCourse = new Course(null, this.updateCourseGroup.get('name').value,
       this.updateCourseGroup.get('duration').value, null);*/
     console.log(course);

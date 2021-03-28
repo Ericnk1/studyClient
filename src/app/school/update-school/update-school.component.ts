@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SchoolService} from '../../shared/services/school.service';
 import {Location} from '@angular/common';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {School} from '../../shared/models/school';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -26,12 +26,13 @@ export class UpdateSchoolComponent implements OnInit {
     this.schoolService.getSchoolById(this.school.id).subscribe(value => {
       this.school = value;
       console.log(this.school);
+      this.updateSchoolGroup.setValue(this.school);
     });
     this.updateSchoolGroup = this.formBuilder.group({
-      id: this.school.id,
-      name: this.school.name,
-      city: this.school.city,
-      phone: this.school.phone
+      id: new FormControl(this.school.id, Validators.required),
+      name: new FormControl(this.school.name, Validators.required),
+      city: new FormControl(this.school.city, Validators.required),
+      phone: new FormControl(this.school.phone, Validators.required)
     });
   }
   updateSchool(school: School): void {

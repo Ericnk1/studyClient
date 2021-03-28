@@ -26,21 +26,21 @@
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill" class="example-full-width">
-        <mat-label>Status</mat-label>
+        <mat-label formControlName="authority"></mat-label>
         <mat-select formControlName="authority">
           <mat-option *ngFor="let authority of authorities" [value]="authority">{{authority.name}}</mat-option>
         </mat-select>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill" class="example-full-width">
-        <mat-label>School</mat-label>
+        <mat-label formControlName="school"></mat-label>
         <mat-select formControlName="school">
           <mat-option *ngFor="let school of schools" [value]="school">{{school.name}}</mat-option>
         </mat-select>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill" class="example-full-width">
-        <mat-label>Course</mat-label>
+        <mat-label formControlName="course"></mat-label>
         <mat-select formControlName="course">
           <mat-option *ngFor="let course of courses" [value]="course">{{course.name}}</mat-option>
         </mat-select>
